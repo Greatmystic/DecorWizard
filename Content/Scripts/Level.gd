@@ -1,23 +1,26 @@
 extends TileMap
 
-var GridSize = 4
-var Dic = {}
+var selectedTile
+var selectionLayer = 2
 
 func _ready():
-	for x in GridSize:
-		for y in GridSize:
-			Dic[str(Vector2(x,y))] ={
-			"Type" : "Grass"
-			}
-			set_cell(0, Vector2(x, y), 0, Vector2i(0,0), 0)
-			
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var tile = local_to_map(get_global_mouse_position())
 	
-	for x in GridSize:
-		for y in GridSize:
-			erase_cell(1, Vector2(x, y))
-			
-		if Dic.has(str(tile)):
-			set_cell(1, tile, 1, Vector2i(0,0), 0)
+	selectedTile = Vector2i(0,0);
+	
+	
+	
+func _process(_delta):
+	
+	#get new selection
+	var newSelectedTile = local_to_map(get_global_mouse_position())
+	
+	if (selectedTile != newSelectedTile):
+		
+		#erase and replace old selection with new
+		erase_cell(selectionLayer, selectedTile)
+		selectedTile = newSelectedTile
+		
+		# write only if tile is writable
+		if (get_cell_tile_data(0, selectedTile)):
+			set_cell(selectionLayer, selectedTile, 2, Vector2i(0,0), 0)
+
