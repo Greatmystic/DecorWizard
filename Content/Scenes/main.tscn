@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwgob7s8x4al5"]
+[gd_scene load_steps=9 format=3 uid="uid://bwgob7s8x4al5"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Level.gd" id="1_hrjxc"]
 [ext_resource type="Texture2D" uid="uid://4dvc1bnqki42" path="res://Content/Sprites/grid_cell.png" id="1_hwug3"]
 [ext_resource type="Texture2D" uid="uid://bobdfu5kkitbr" path="res://Content/Sprites/16x16 grid.png" id="2_au86j"]
+[ext_resource type="Texture2D" uid="uid://vo5dngrdgaeo" path="res://Content/Sprites/fullTileTest.png" id="3_o3qsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"
@@ -16,12 +17,18 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("2_au86j")
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v2qav"]
+texture = ExtResource("3_o3qsu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_rbp8s"]
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "Writable"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_sn1d1")
 sources/2 = SubResource("TileSetAtlasSource_02j58")
+sources/3 = SubResource("TileSetAtlasSource_v2qav")
 
 [node name="Root" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-32.0]
