@@ -9,37 +9,6 @@ resource_name = "cell empty"
 texture = ExtResource("1_hwug3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-14:0/0 = 0
-15:0/0 = 0
-0:1/0 = 0
-15:1/0 = 0
-0:2/0 = 0
-15:2/0 = 0
-0:3/0 = 0
-15:3/0 = 0
-0:12/0 = 0
-15:12/0 = 0
-0:13/0 = 0
-15:13/0 = 0
-0:14/0 = 0
-15:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
-14:15/0 = 0
-15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02j58"]
 texture = ExtResource("2_au86j")
@@ -47,6 +16,8 @@ texture = ExtResource("2_au86j")
 
 [sub_resource type="TileSet" id="TileSet_rbp8s"]
 tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "Writable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_sn1d1")
 sources/2 = SubResource("TileSetAtlasSource_02j58")
 
