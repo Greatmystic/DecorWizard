@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://blc6oeufr210j"]
+[gd_scene load_steps=5 format=3 uid="uid://csf16xq5q425f"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Block.gd" id="1_ej6xi"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="2_67lfs"]
@@ -7,12 +7,14 @@
 texture = ExtResource("2_67lfs")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
+0:0/0/custom_data_1 = true
 
 [sub_resource type="TileSet" id="TileSet_av8p7"]
 tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "Writable"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Written"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_85t61")
 
 [node name="BlockT" type="Node2D"]

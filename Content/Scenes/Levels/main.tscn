@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bobdfu5kkitbr" path="res://Content/Sprites/16x16 grid.png" id="3_l8v5q"]
 [ext_resource type="Texture2D" uid="uid://vo5dngrdgaeo" path="res://Content/Sprites/fullTileTest.png" id="4_e3y2c"]
 [ext_resource type="Script" path="res://Content/Scripts/Level.gd" id="5_s4r3s"]
-[ext_resource type="PackedScene" uid="uid://blc6oeufr210j" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
+[ext_resource type="PackedScene" uid="uid://csf16xq5q425f" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"
@@ -36,6 +36,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "Writable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Written"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_sn1d1")
 sources/2 = SubResource("TileSetAtlasSource_02j58")
 sources/3 = SubResource("TileSetAtlasSource_v2qav")
@@ -44,7 +46,9 @@ sources/1 = SubResource("TileSetAtlasSource_27kjl")
 [node name="Root" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-32.0]
 
-[node name="BlockT" parent="." instance=ExtResource("6_kx40d")]
+[node name="Blocks" type="Node2D" parent="."]
+
+[node name="BlockT" parent="Blocks" instance=ExtResource("6_kx40d")]
 position = Vector2(169, 174)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -65,6 +69,7 @@ layer = -10
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1158.0
 offset_bottom = 650.0
+mouse_filter = 1
 color = Color(0.149466, 0.172486, 0.195049, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
