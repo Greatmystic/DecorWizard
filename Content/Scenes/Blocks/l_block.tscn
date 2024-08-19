@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://cofqml7m78dhg"]
+
+[ext_resource type="Script" path="res://Content/Scripts/Block.gd" id="1_3amyp"]
+[ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="2_yiqhi"]
+[ext_resource type="Texture2D" uid="uid://xyo5kmhs5aep" path="res://Content/Sprites/L Block.png" id="3_pg5ab"]
+[ext_resource type="Texture2D" uid="uid://cbesvgpyxi5du" path="res://Content/Sprites/BIG L Block.png" id="4_l2gd7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6gsuq"]
+texture = ExtResource("2_yiqhi")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oq11f"]
+texture = ExtResource("3_pg5ab")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgxf5"]
+texture = ExtResource("4_l2gd7")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_av8p7"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "Writable"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Written"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_6gsuq")
+sources/2 = SubResource("TileSetAtlasSource_oq11f")
+sources/3 = SubResource("TileSetAtlasSource_jgxf5")
+
+[node name="L Block" type="Node2D"]
+position = Vector2(620, 564)
+script = ExtResource("1_3amyp")
+
+[node name="Small" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Small"]
+
+[node name="TileMap" type="TileMap" parent="Small"]
+texture_filter = 1
+position = Vector2(-16, -16)
+tile_set = SubResource("TileSet_av8p7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 2, 0, -131071, 65538, 0, 0, 2, 2, -65536, 2, 1)
+
+[node name="Area2D" type="Area2D" parent="Small"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Small/Area2D"]
+polygon = PackedVector2Array(-16, 16, 16, 16, 16, -48, 48, -48, 48, -80, -16, -80)
+
+[node name="Big" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Big"]
+
+[node name="TileMap" type="TileMap" parent="Big"]
+position = Vector2(-16, -16)
+tile_set = SubResource("TileSet_av8p7")
+format = 2
+layer_0/tile_data = PackedInt32Array(-327680, 3, 0, -262144, 3, 1, -196608, 3, 2, -131072, 3, 3, -65536, 3, 4, 0, 3, 5, -327679, 65539, 0, -262143, 65539, 1, -196607, 65539, 2, -131071, 65539, 3, -65535, 65539, 4, 1, 65539, 5, -327678, 131075, 0, -262142, 131075, 1, -327677, 196611, 0, -262141, 196611, 1)
+
+[node name="Area2D" type="Area2D" parent="Big"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Big/Area2D"]
+polygon = PackedVector2Array(-16, 16, 48, 16, 48, -112, 112, -112, 112, -176, -16, -176)
+
+[connection signal="input_event" from="Small/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Big/Area2D" to="." method="_on_area_2d_input_event"]

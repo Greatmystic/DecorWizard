@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bwgob7s8x4al5"]
+[gd_scene load_steps=22 format=3 uid="uid://bwgob7s8x4al5"]
 
 [ext_resource type="Texture2D" uid="uid://4dvc1bnqki42" path="res://Content/Sprites/grid_cell.png" id="1_b4nu3"]
 [ext_resource type="Texture2D" uid="uid://bo7qrwx2hhdv4" path="res://Content/Sprites/1x4 tile.png" id="2_1yrim"]
@@ -8,7 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://blc6oeufr210j" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
 [ext_resource type="Texture2D" uid="uid://cdsiy53w2e0vf" path="res://Content/Sprites/empty.png" id="6_qmnfx"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="7_l4wcd"]
-[ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/Wizard.tscn" id="9_le2fi"]
+[ext_resource type="PackedScene" uid="uid://clf5fet6cpmjs" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
+[ext_resource type="PackedScene" uid="uid://cgymbodwj66eh" path="res://Content/Scenes/Blocks/block_t_copy.tscn" id="10_qwwjj"]
+[ext_resource type="PackedScene" uid="uid://bqjuqhb72dcul" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
+[ext_resource type="PackedScene" uid="uid://cofqml7m78dhg" path="res://Content/Scenes/Blocks/l_block.tscn" id="11_gew7y"]
+[ext_resource type="PackedScene" uid="uid://7icjrbtwpvmu" path="res://Content/Scenes/Blocks/desk_carpet.tscn" id="12_sencg"]
+[ext_resource type="PackedScene" uid="uid://brew844qxb5e1" path="res://Content/Scenes/Blocks/penta_gurlu.tscn" id="13_kt0hh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"
@@ -60,21 +65,6 @@ sources/1 = SubResource("TileSetAtlasSource_27kjl")
 sources/4 = SubResource("TileSetAtlasSource_5mk2f")
 sources/5 = SubResource("TileSetAtlasSource_l5cvh")
 
-[sub_resource type="LabelSettings" id="LabelSettings_lyt0n"]
-font_size = 20
-
-[sub_resource type="LabelSettings" id="LabelSettings_yvegi"]
-font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_bkj6f"]
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_odgvg"]
-font_size = 40
-shadow_size = 10
-shadow_color = Color(0, 0, 0, 0.27451)
-shadow_offset = Vector2(2.405, 2.295)
-
 [node name="Root" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-32.0]
 
@@ -101,94 +91,20 @@ position = Vector2(169, 174)
 [node name="BlockT2" parent="Blocks" instance=ExtResource("6_kx40d")]
 position = Vector2(192.785, 281.01)
 
-[node name="Decor" type="Node2D" parent="."]
+[node name="T-Desk" parent="Blocks" instance=ExtResource("10_qwwjj")]
+position = Vector2(247, 362)
 
-[node name="Wizard" parent="Decor" instance=ExtResource("9_le2fi")]
-position = Vector2(117, 508)
-scale = Vector2(1.97656, 1.97656)
+[node name="I Block" parent="Blocks" instance=ExtResource("10_tnufd")]
+position = Vector2(310, 282)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Decor"]
-layer = -10
+[node name="L Block" parent="Blocks" instance=ExtResource("11_gew7y")]
+position = Vector2(262, 187)
 
-[node name="ColorRect" type="ColorRect" parent="Decor/CanvasLayer"]
-offset_right = 1158.0
-offset_bottom = 650.0
-mouse_filter = 1
-color = Color(0.149466, 0.172486, 0.195049, 1)
+[node name="DeskCarpet" parent="Blocks" instance=ExtResource("12_sencg")]
+position = Vector2(301, 551)
+
+[node name="PentaGurlu" parent="Blocks" instance=ExtResource("13_kt0hh")]
+position = Vector2(440, 543)
+
+[node name="Decor" parent="." instance=ExtResource("9_tsqbp")]
 metadata/_edit_lock_ = true
-
-[node name="Quota" type="Control" parent="Decor/CanvasLayer"]
-layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -95.075
-offset_top = 20.28
-offset_right = 94.9712
-offset_bottom = 57.28
-grow_horizontal = 2
-mouse_filter = 1
-
-[node name="SmallQuota" type="Label" parent="Decor/CanvasLayer/Quota"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 13.745
-offset_top = -14.0
-offset_right = 62.745
-offset_bottom = 14.0
-grow_vertical = 2
-text = "0"
-label_settings = SubResource("LabelSettings_lyt0n")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColonSeparate" type="Label" parent="Decor/CanvasLayer/Quota"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = ":"
-label_settings = SubResource("LabelSettings_yvegi")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BigQuota" type="Label" parent="Decor/CanvasLayer/Quota"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -74.0
-offset_top = -27.5
-offset_bottom = 27.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "0"
-label_settings = SubResource("LabelSettings_bkj6f")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Win" type="Label" parent="Decor/CanvasLayer"]
-visible = false
-custom_minimum_size = Vector2(0.515, 0)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -61.0
-offset_top = 59.18
-offset_right = 62.0
-offset_bottom = 114.18
-grow_horizontal = 2
-text = "WIN ! !"
-label_settings = SubResource("LabelSettings_odgvg")
