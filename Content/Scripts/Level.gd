@@ -68,14 +68,16 @@ func writeBlock(block, pos, place, rotation):
 func getUsedCells(tilemap, rotation:int):
 	var usedCells = tilemap.get_used_cells(0)
 	var currentRotation = rotation % 360
+	var res = Array()
 	if currentRotation != 0:
 		for c in usedCells:
 			match (currentRotation):
 				90:
-					c = Vector2i(-c.y, c.x)
+					res.append(Vector2i(-c.y, c.x))
 				180:
-					c = Vector2i(c.x, -c.y)
+					res.append(Vector2i(c.x, -c.y))
 				270:
-					c = Vector2i(c.y, -c.x)
+					res.append(Vector2i(c.y, -c.x))
+		return res
 	return usedCells
 	
