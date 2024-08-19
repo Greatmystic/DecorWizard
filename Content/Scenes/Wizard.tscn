@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://csjb381g3kwpq"]
+
+[ext_resource type="Texture2D" uid="uid://clkuasrbj1en4" path="res://Content/Sprites/WizardIdle.png" id="1_76u54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ivw5"]
+atlas = ExtResource("1_76u54")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgw4d"]
+atlas = ExtResource("1_76u54")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld4ol"]
+atlas = ExtResource("1_76u54")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3p2o"]
+atlas = ExtResource("1_76u54")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rra8"]
+atlas = ExtResource("1_76u54")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy1y2"]
+atlas = ExtResource("1_76u54")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xr0i"]
+atlas = ExtResource("1_76u54")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjiv3"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0ivw5")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_rgw4d")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_ld4ol")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_k3p2o")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_3rra8")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_iy1y2")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7xr0i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Wizard" type="AnimatedSprite2D"]
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_hjiv3")
+autoplay = "default"
+frame = 1
+frame_progress = 0.99705
