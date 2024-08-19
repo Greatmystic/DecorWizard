@@ -1,19 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://bwgob7s8x4al5"]
+[gd_scene load_steps=24 format=3 uid="uid://bwgob7s8x4al5"]
 
 [ext_resource type="Texture2D" uid="uid://4dvc1bnqki42" path="res://Content/Sprites/grid_cell.png" id="1_b4nu3"]
 [ext_resource type="Texture2D" uid="uid://bo7qrwx2hhdv4" path="res://Content/Sprites/1x4 tile.png" id="2_1yrim"]
 [ext_resource type="Texture2D" uid="uid://bobdfu5kkitbr" path="res://Content/Sprites/16x16 grid.png" id="3_l8v5q"]
 [ext_resource type="Texture2D" uid="uid://vo5dngrdgaeo" path="res://Content/Sprites/fullTileTest.png" id="4_e3y2c"]
 [ext_resource type="Script" path="res://Content/Scripts/Level.gd" id="5_s4r3s"]
-[ext_resource type="PackedScene" uid="uid://blc6oeufr210j" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
+[ext_resource type="PackedScene" uid="uid://csf16xq5q425f" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
 [ext_resource type="Texture2D" uid="uid://cdsiy53w2e0vf" path="res://Content/Sprites/empty.png" id="6_qmnfx"]
+[ext_resource type="Texture2D" uid="uid://dnryt4ujtnxm3" path="res://Content/Sprites/error.png" id="7_1j0e8"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="7_l4wcd"]
-[ext_resource type="PackedScene" uid="uid://clf5fet6cpmjs" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
-[ext_resource type="PackedScene" uid="uid://cgymbodwj66eh" path="res://Content/Scenes/Blocks/block_t_copy.tscn" id="10_qwwjj"]
-[ext_resource type="PackedScene" uid="uid://bqjuqhb72dcul" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
-[ext_resource type="PackedScene" uid="uid://cofqml7m78dhg" path="res://Content/Scenes/Blocks/l_block.tscn" id="11_gew7y"]
-[ext_resource type="PackedScene" uid="uid://7icjrbtwpvmu" path="res://Content/Scenes/Blocks/desk_carpet.tscn" id="12_sencg"]
-[ext_resource type="PackedScene" uid="uid://brew844qxb5e1" path="res://Content/Scenes/Blocks/penta_gurlu.tscn" id="13_kt0hh"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/block_t_copy.tscn" id="10_qwwjj"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/l_block.tscn" id="11_gew7y"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/desk_carpet.tscn" id="12_sencg"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/penta_gurlu.tscn" id="13_kt0hh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"
@@ -52,6 +53,12 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/custom_data_1 = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3rfn"]
+texture = ExtResource("7_1j0e8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_1 = true
+
 [sub_resource type="TileSet" id="TileSet_rbp8s"]
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "Writable"
@@ -64,6 +71,7 @@ sources/3 = SubResource("TileSetAtlasSource_v2qav")
 sources/1 = SubResource("TileSetAtlasSource_27kjl")
 sources/4 = SubResource("TileSetAtlasSource_5mk2f")
 sources/5 = SubResource("TileSetAtlasSource_l5cvh")
+sources/6 = SubResource("TileSetAtlasSource_e3rfn")
 
 [node name="Root" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-32.0]

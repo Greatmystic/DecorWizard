@@ -7,6 +7,8 @@ extends TileMap
 
 var selectedTile = Vector2i(0,0);
 var selectedBlock = null
+var selectedBlockGrid = Array()
+var canBlockBePlacedVar = false
 
 var selectionLayer = 2
 var placeLayer = 1
@@ -34,23 +36,38 @@ func _ready():
 
 
 func _process(_delta):
-	##get new selection
+	
 	var newSelectedTile = local_to_map(get_global_mouse_position())
-	#
 	if (selectedTile != newSelectedTile):
-		
-		#erase and replace old selection with new
-		erase_cell(selectionLayer, selectedTile)
 		selectedTile = newSelectedTile
+		updateSelectionPlacement()
 		
-		# write only if tile is writable
-		if (get_cell_tile_data(0, selectedTile)):
-			set_cell(selectionLayer, selectedTile, 2, Vector2i(0,0), 0)
 		
 	if Input.is_action_just_pressed("ScaleSpell") and selectedBlock:
 		selectedBlock.flipScale()
 		updateQuotas()
+		updateSelectionPlacement()
 	
+	
+	
+func updateSelectionPlacement():
+	##get new selection
+		#erase and replace old selection with new
+		for c in selectedBlockGrid:
+			erase_cell(selectionLayer, c)
+		
+		# write only if tile is writable
+		if (get_cell_tile_data(0, selectedTile) and selectedBlock):
+			showBlockPlacement(selectedBlock, selectedTile, selectedBlock.rotation_degrees, selectedBlock.isBig)
+		
+	
+func showBlockPlacement(block, pos, rotatio, isBig):
+	setBlockGrid(pos, rotatio, isBig)
+	canBlockBePlacedVar = canBlockBePlaced(block, pos, rotatio, isBig)
+	var newBlock = 5 if canBlockBePlacedVar else 6
+	for c in selectedBlockGrid:
+		if get_cell_tile_data(0, pos):
+			set_cell(selectionLayer, c, newBlock, Vector2i(0,0), 0)
 	
 	
 func pickupBlock(block, pos, rotatio, isBig):
@@ -63,7 +80,7 @@ func pickupBlock(block, pos, rotatio, isBig):
 
 func placeBlock(rotatio, isBig):
 	if (get_cell_tile_data(gridLayer, selectedTile)):
-		if !canBlockBePlaced(selectedBlock, selectedTile, rotatio,isBig):
+		if !canBlockBePlacedVar:
 			return false
 		else: 
 			writeBlock(selectedBlock, selectedTile, true, rotatio, isBig)
@@ -114,6 +131,12 @@ func getUsedCells(tilemap, rotatio:int):
 		return res
 	return usedCells
 
+func setBlockGrid(pos, rotatio, isBig):
+	if selectedBlock:
+		var blockTilemap = selectedBlock.big.get_node("TileMap") if isBig else selectedBlock.small.get_node("TileMap")
+		selectedBlockGrid = Array()
+		for c in getUsedCells(blockTilemap, rotatio):
+			selectedBlockGrid.append(pos + c)
 
 func updateQuotas():
 	bigQuotaLabel.text = str(bigQuota)
