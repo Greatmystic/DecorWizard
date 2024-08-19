@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwgob7s8x4al5"]
+[gd_scene load_steps=16 format=3 uid="uid://bwgob7s8x4al5"]
 
 [ext_resource type="Texture2D" uid="uid://4dvc1bnqki42" path="res://Content/Sprites/grid_cell.png" id="1_b4nu3"]
 [ext_resource type="Texture2D" uid="uid://bo7qrwx2hhdv4" path="res://Content/Sprites/1x4 tile.png" id="2_1yrim"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://vo5dngrdgaeo" path="res://Content/Sprites/fullTileTest.png" id="4_e3y2c"]
 [ext_resource type="Script" path="res://Content/Scripts/Level.gd" id="5_s4r3s"]
 [ext_resource type="PackedScene" uid="uid://csf16xq5q425f" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
+[ext_resource type="Texture2D" uid="uid://cdsiy53w2e0vf" path="res://Content/Sprites/empty.png" id="6_qmnfx"]
+[ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="7_l4wcd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"
@@ -32,6 +34,18 @@ texture = ExtResource("4_e3y2c")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mk2f"]
+texture = ExtResource("6_qmnfx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l5cvh"]
+texture = ExtResource("7_l4wcd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_1 = true
+
 [sub_resource type="TileSet" id="TileSet_rbp8s"]
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "Writable"
@@ -42,6 +56,8 @@ sources/0 = SubResource("TileSetAtlasSource_sn1d1")
 sources/2 = SubResource("TileSetAtlasSource_02j58")
 sources/3 = SubResource("TileSetAtlasSource_v2qav")
 sources/1 = SubResource("TileSetAtlasSource_27kjl")
+sources/4 = SubResource("TileSetAtlasSource_5mk2f")
+sources/5 = SubResource("TileSetAtlasSource_l5cvh")
 
 [node name="Root" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-32.0]
@@ -50,6 +66,9 @@ metadata/_edit_horizontal_guides_ = [-32.0]
 
 [node name="BlockT" parent="Blocks" instance=ExtResource("6_kx40d")]
 position = Vector2(169, 174)
+
+[node name="BlockT2" parent="Blocks" instance=ExtResource("6_kx40d")]
+position = Vector2(192.785, 281.01)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rbp8s")

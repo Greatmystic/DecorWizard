@@ -15,16 +15,11 @@ func _process(_delta):
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and placable:
-		#if clicked == false:
-			#level.pickupBlock(self)
-			#clicked = true
-		#else:
-			#if level.placeBlock():
-				#clicked = true
-		if clicked == false:
+		if clicked == false and !level.selectedBlock:
 			level.pickupBlock(self)
+			clicked = true
 		else:
-			level.placeBlock()
-		clicked = !clicked
+			if level.placeBlock():
+				clicked = false
 
 
