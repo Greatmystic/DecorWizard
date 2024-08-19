@@ -6,6 +6,7 @@ extends Node2D
 
 var clicked = false
 var isBig = false
+var placedInGrid = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -21,6 +22,14 @@ func flipScale():
 	isBig = !isBig
 	big.visible = isBig
 	small.visible = !isBig
+	
+	if isBig:
+		level.bigQuota += 1
+		level.smallQuota -= 1
+	else:
+		level.bigQuota -= 1
+		level.smallQuota += 1
+
 
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):

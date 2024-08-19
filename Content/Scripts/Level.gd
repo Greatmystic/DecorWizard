@@ -1,5 +1,10 @@
 extends TileMap
 
+@onready var blocks = $"../Blocks"
+@onready var bigQuotaLabel = $"../Decor/CanvasLayer/Quota/BigQuota"
+@onready var smallQuotaLabel = $"../Decor/CanvasLayer/Quota/SmallQuota"
+@onready var winLabel = $"../Decor/CanvasLayer/Win"
+
 var selectedTile = Vector2i(0,0);
 var selectedBlock = null
 
@@ -7,11 +12,25 @@ var selectionLayer = 2
 var placeLayer = 1
 var gridLayer = 0
 
+var bigQuota = 0
+var smallQuota = 0
+var totalBlocks = 0
+var blocksPlaced = 0
+
 
 func _ready():
+	totalBlocks = blocks.get_child_count()
+	
 	for c in get_used_cells(0):
 		set_cell(placeLayer, c, 4, Vector2i(0,0), 0)
 	
+	for b in blocks.get_children():
+		if b.isBig:
+			bigQuota += 1
+		else:
+			smallQuota += 1
+	updateQuotas()
+	winLabel.visible = false
 
 
 func _process(_delta):
@@ -30,12 +49,16 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("ScaleSpell") and selectedBlock:
 		selectedBlock.flipScale()
-
-
+		updateQuotas()
+	
+	
+	
 func pickupBlock(block, pos, rotatio, isBig):
 	selectedBlock = block
 	if get_cell_tile_data(gridLayer, selectedTile):
 		writeBlock(selectedBlock, selectedTile - pos, false, rotatio, isBig)
+		selectedBlock.placedInGrid = false
+		blocksPlaced -= 1
 
 
 func placeBlock(rotatio, isBig):
@@ -45,6 +68,12 @@ func placeBlock(rotatio, isBig):
 		else: 
 			writeBlock(selectedBlock, selectedTile, true, rotatio, isBig)
 			selectedBlock.position = map_to_local(selectedTile)
+			selectedBlock.placedInGrid = true
+			blocksPlaced += 1
+			
+			if blocksPlaced == totalBlocks and bigQuota == smallQuota:
+				winLevel()
+				
 	selectedBlock = null
 	return true
 
@@ -84,4 +113,12 @@ func getUsedCells(tilemap, rotatio:int):
 					res.append(Vector2i(c.y, -c.x))
 		return res
 	return usedCells
-	
+
+
+func updateQuotas():
+	bigQuotaLabel.text = str(bigQuota)
+	smallQuotaLabel.text = str(smallQuota)
+
+
+func winLevel():
+	winLabel.visible = true
