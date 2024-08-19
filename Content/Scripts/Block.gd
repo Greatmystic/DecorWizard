@@ -20,10 +20,13 @@ func getClickedTile():
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if clicked == false and !level.selectedBlock:
-			level.pickupBlock(self, getClickedTile())
+			level.pickupBlock(self, getClickedTile(), rotation_degrees)
 			clicked = true
 		else:
-			if level.placeBlock():
+			if level.placeBlock(rotation_degrees):
 				clicked = false
+	if clicked and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+		rotation_degrees += 90
+		
 
 
