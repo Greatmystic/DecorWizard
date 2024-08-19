@@ -15,7 +15,6 @@ func _ready():
 
 
 func _process(_delta):
-	print(selectedBlock)
 	##get new selection
 	var newSelectedTile = local_to_map(get_global_mouse_position())
 	#
@@ -31,10 +30,10 @@ func _process(_delta):
 			
 
 
-func pickupBlock(block):
+func pickupBlock(block, pos):
 	selectedBlock = block
 	if get_cell_tile_data(gridLayer, selectedTile):
-		writeBlock(selectedBlock, selectedTile, false)
+		writeBlock(selectedBlock, selectedTile - pos, false)
 
 
 func placeBlock():
