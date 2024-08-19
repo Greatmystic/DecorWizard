@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://bobdfu5kkitbr" path="res://Content/Sprites/16x16 grid.png" id="3_l8v5q"]
 [ext_resource type="Texture2D" uid="uid://vo5dngrdgaeo" path="res://Content/Sprites/fullTileTest.png" id="4_e3y2c"]
 [ext_resource type="Script" path="res://Content/Scripts/Level.gd" id="5_s4r3s"]
-[ext_resource type="PackedScene" uid="uid://blc6oeufr210j" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
+[ext_resource type="PackedScene" uid="uid://csf16xq5q425f" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
 [ext_resource type="Texture2D" uid="uid://cdsiy53w2e0vf" path="res://Content/Sprites/empty.png" id="6_qmnfx"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="7_l4wcd"]
-[ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/Wizard.tscn" id="9_le2fi"]
+[ext_resource type="PackedScene" uid="uid://ddxb0wjfc5w4j" path="res://Content/Scenes/Wizard.tscn" id="9_le2fi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"

@@ -27,28 +27,31 @@ func _process(_delta):
 		# write only if tile is writable
 		if (get_cell_tile_data(0, selectedTile)):
 			set_cell(selectionLayer, selectedTile, 2, Vector2i(0,0), 0)
-			
+		
+	if Input.is_action_just_pressed("ScaleSpell") and selectedBlock:
+		selectedBlock.flipScale()
 
 
-func pickupBlock(block, pos, rotation):
+func pickupBlock(block, pos, rotatio, isBig):
 	selectedBlock = block
 	if get_cell_tile_data(gridLayer, selectedTile):
-		writeBlock(selectedBlock, selectedTile - pos, false, rotation)
+		writeBlock(selectedBlock, selectedTile - pos, false, rotatio, isBig)
 
 
-func placeBlock(rotation):
+func placeBlock(rotatio, isBig):
 	if (get_cell_tile_data(gridLayer, selectedTile)):
-		if !canBlockBePlaced(selectedBlock, selectedTile, rotation):
+		if !canBlockBePlaced(selectedBlock, selectedTile, rotatio,isBig):
 			return false
 		else: 
-			writeBlock(selectedBlock, selectedTile, true, rotation)
+			writeBlock(selectedBlock, selectedTile, true, rotatio, isBig)
 			selectedBlock.position = map_to_local(selectedTile)
 	selectedBlock = null
 	return true
 
 
-func canBlockBePlaced(block, pos, rotation):
-	var usedCells = getUsedCells(block.small.get_node("TileMap"), rotation)
+func canBlockBePlaced(block, pos, rotatio, isBig):
+	var blockTilemap = block.big.get_node("TileMap") if isBig else block.small.get_node("TileMap")
+	var usedCells = getUsedCells(blockTilemap, rotatio)
 	for c in usedCells:
 		var newPos = pos + c
 		var tileData = get_cell_tile_data(placeLayer, newPos)
@@ -57,17 +60,18 @@ func canBlockBePlaced(block, pos, rotation):
 	return true
 
 
-func writeBlock(block, pos, place, rotation):
-	var usedCells = getUsedCells(block.small.get_node("TileMap"), rotation)
+func writeBlock(block, pos, place, rotatio, isBig):
+	var blockTilemap = block.big.get_node("TileMap") if isBig else block.small.get_node("TileMap")
+	var usedCells = getUsedCells(blockTilemap, rotatio)
 	var newBlock = 5 if place else 4
 	for c in usedCells:
 		var newPos = pos + c
 		set_cell(placeLayer, newPos, newBlock, Vector2i(0,0), 0)
 		
 		
-func getUsedCells(tilemap, rotation:int):
+func getUsedCells(tilemap, rotatio:int):
 	var usedCells = tilemap.get_used_cells(0)
-	var currentRotation = rotation % 360
+	var currentRotation = rotatio % 360
 	var res = Array()
 	if currentRotation != 0:
 		for c in usedCells:
@@ -75,7 +79,7 @@ func getUsedCells(tilemap, rotation:int):
 				90:
 					res.append(Vector2i(-c.y, c.x))
 				180:
-					res.append(Vector2i(c.x, -c.y))
+					res.append(Vector2i(-c.x, -c.y))
 				270:
 					res.append(Vector2i(c.y, -c.x))
 		return res
