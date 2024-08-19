@@ -5,7 +5,6 @@ extends Node2D
 @onready var big = $Big
 
 var clicked = false
-var placable = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -19,12 +18,11 @@ func getClickedTile():
 	
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and placable:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if clicked == false and !level.selectedBlock:
 			level.pickupBlock(self, getClickedTile())
 			clicked = true
 		else:
-			
 			if level.placeBlock():
 				clicked = false
 
