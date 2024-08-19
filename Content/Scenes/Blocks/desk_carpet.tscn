@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://7icjrbtwpvmu"]
+[gd_scene load_steps=10 format=3 uid="uid://dq7ddubrhoxwu"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Block.gd" id="1_4insw"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="2_xp8ic"]
 [ext_resource type="Texture2D" uid="uid://dy4ne5g6j52g0" path="res://Content/Sprites/DeskCarpet.png" id="3_2rm0x"]
 [ext_resource type="Texture2D" uid="uid://sbugbj3q3nna" path="res://Content/Sprites/BIG DeskCarpet.png" id="4_7v7ce"]
+[ext_resource type="PackedScene" uid="uid://rxl2cx2kt10e" path="res://Content/Scenes/FX/cloud_burst.tscn" id="5_7eol6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6gsuq"]
 texture = ExtResource("2_xp8ic")
@@ -69,7 +70,6 @@ sources/1 = SubResource("TileSetAtlasSource_47qsc")
 sources/2 = SubResource("TileSetAtlasSource_85bm6")
 
 [node name="DeskCarpet" type="Node2D"]
-position = Vector2(620, 564)
 script = ExtResource("1_4insw")
 
 [node name="Small" type="Node2D" parent="."]
@@ -88,6 +88,9 @@ layer_0/tile_data = PackedInt32Array(-131072, 1, 0, -65536, 1, 1, 0, 1, 2, -1310
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Small/Area2D"]
 polygon = PackedVector2Array(-16, 48, 16, 48, 48, 48, 48, -48, 48, -80, -16, -80)
 
+[node name="CloudBurst" parent="Small" instance=ExtResource("5_7eol6")]
+position = Vector2(15.64, -16.94)
+
 [node name="Big" type="Node2D" parent="."]
 visible = false
 
@@ -103,6 +106,9 @@ layer_0/tile_data = PackedInt32Array(-327680, 2, 0, -262144, 2, 1, -196608, 2, 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Big/Area2D"]
 polygon = PackedVector2Array(-16, 80, 52, 80, 112, 80, 112, -112, 112, -176, -16, -176)
+
+[node name="CloudBurst" parent="Big" instance=ExtResource("5_7eol6")]
+position = Vector2(48.43, -51.565)
 
 [connection signal="input_event" from="Small/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Big/Area2D" to="." method="_on_area_2d_input_event"]

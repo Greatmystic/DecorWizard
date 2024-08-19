@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqjuqhb72dcul"]
+[gd_scene load_steps=10 format=3 uid="uid://cp1rd0igsqw02"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Block.gd" id="1_vpu8f"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="2_f7ev1"]
 [ext_resource type="Texture2D" uid="uid://0qehcbv5bfny" path="res://Content/Sprites/I BLOCK.png" id="3_t46h0"]
 [ext_resource type="Texture2D" uid="uid://bvahkpdv82wu7" path="res://Content/Sprites/BIG I block.png" id="4_b1t61"]
+[ext_resource type="PackedScene" uid="uid://rxl2cx2kt10e" path="res://Content/Scenes/FX/cloud_burst.tscn" id="5_2bmn4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6gsuq"]
 texture = ExtResource("2_f7ev1")
@@ -49,7 +50,6 @@ sources/5 = SubResource("TileSetAtlasSource_ci32m")
 sources/6 = SubResource("TileSetAtlasSource_mlmtm")
 
 [node name="I Block" type="Node2D"]
-position = Vector2(290, 464)
 script = ExtResource("1_vpu8f")
 
 [node name="Small" type="Node2D" parent="."]
@@ -68,6 +68,9 @@ layer_0/tile_data = PackedInt32Array(-196608, 5, 0, -131072, 5, 1, -65536, 5, 2,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Small/Area2D"]
 polygon = PackedVector2Array(-16, 16, 16, 16, 16, -112, -16, -112)
 
+[node name="CloudBurst" parent="Small" instance=ExtResource("5_2bmn4")]
+position = Vector2(0, -47.615)
+
 [node name="Big" type="Node2D" parent="."]
 visible = false
 
@@ -83,6 +86,9 @@ layer_0/tile_data = PackedInt32Array(-65535, 65542, 6, 1, 65542, 7, -196607, 655
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Big/Area2D"]
 polygon = PackedVector2Array(-16, 16, 48, 16, 48, -240, -16, -240)
+
+[node name="CloudBurst" parent="Big" instance=ExtResource("5_2bmn4")]
+position = Vector2(14.535, -117.07)
 
 [connection signal="input_event" from="Small/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Big/Area2D" to="." method="_on_area_2d_input_event"]

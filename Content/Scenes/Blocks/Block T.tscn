@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://csf16xq5q425f"]
+[gd_scene load_steps=6 format=3 uid="uid://csf16xq5q425f"]
 
 [ext_resource type="Script" path="res://Content/Scripts/Block.gd" id="1_ej6xi"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="2_67lfs"]
+[ext_resource type="PackedScene" uid="uid://rxl2cx2kt10e" path="res://Content/Scenes/FX/cloud_burst.tscn" id="3_ltuik"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85t61"]
 texture = ExtResource("2_67lfs")
@@ -35,6 +36,9 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0,
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Small/Area2D"]
 polygon = PackedVector2Array(-16, 16, 16, 16, 16, -16, 48, -16, 48, -48, -48, -48, -48, -16, -16, -16)
 
+[node name="CloudBurst" parent="Small" instance=ExtResource("3_ltuik")]
+position = Vector2(0, -17.15)
+
 [node name="Big" type="Node2D" parent="."]
 visible = false
 
@@ -52,6 +56,9 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, -65536, 0, 0, -65535, 0, 0, 1, 0, 
 position = Vector2(16, -16)
 scale = Vector2(1.99175, 1.99175)
 polygon = PackedVector2Array(-16, 16, 16, 16, 16, -16, 48, -16, 48, -48, -48, -48, -48, -16, -16, -16)
+
+[node name="CloudBurst" parent="Big" instance=ExtResource("3_ltuik")]
+position = Vector2(17.01, -60.785)
 
 [connection signal="input_event" from="Small/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Big/Area2D" to="." method="_on_area_2d_input_event"]

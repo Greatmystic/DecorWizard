@@ -31,7 +31,8 @@ func _ready():
 			bigQuota += 1
 		else:
 			smallQuota += 1
-	updateQuotas()
+	bigQuotaLabel.text = str(bigQuota)
+	smallQuotaLabel.text = str(smallQuota)
 	winLabel.visible = false
 
 
@@ -141,6 +142,10 @@ func setBlockGrid(pos, rotatio, isBig):
 func updateQuotas():
 	bigQuotaLabel.text = str(bigQuota)
 	smallQuotaLabel.text = str(smallQuota)
+	smallQuotaLabel.get_node("CloudBurst").restart()
+	smallQuotaLabel.get_node("CloudBurst").emitting = true
+	bigQuotaLabel.get_node("CloudBurst").restart()
+	bigQuotaLabel.get_node("CloudBurst").emitting = true
 
 
 func winLevel():

@@ -26,9 +26,13 @@ func flipScale():
 	if isBig:
 		level.bigQuota += 1
 		level.smallQuota -= 1
+		big.get_node("CloudBurst").restart()
+		big.get_node("CloudBurst").emitting = true
 	else:
 		level.bigQuota -= 1
 		level.smallQuota += 1
+		small.get_node("CloudBurst").restart()
+		small.get_node("CloudBurst").emitting = true
 
 
 
