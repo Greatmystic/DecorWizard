@@ -15,7 +15,7 @@ func _ready():
 
 
 func _process(_delta):
-	
+	print(selectedBlock)
 	##get new selection
 	var newSelectedTile = local_to_map(get_global_mouse_position())
 	#
@@ -44,7 +44,7 @@ func placeBlock():
 		else: 
 			writeBlock(selectedBlock, selectedTile, true)
 			selectedBlock.position = map_to_local(selectedTile)
-			selectedBlock = null
+	selectedBlock = null
 	return true
 
 
