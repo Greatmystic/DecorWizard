@@ -32,8 +32,6 @@ shadow_offset = Vector2(2.405, 2.295)
 [node name="Wizard" parent="." instance=ExtResource("1_xcjv8")]
 position = Vector2(134, 492)
 scale = Vector2(1.97656, 1.97656)
-animation = &"MAGIC"
-frame_progress = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -52,18 +50,20 @@ color = Color(0.149466, 0.172486, 0.195049, 1)
 metadata/_edit_lock_ = true
 
 [node name="Quota" type="Control" parent="CanvasLayer"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.075
-offset_top = 20.28
-offset_right = 94.9712
-offset_bottom = 57.28
+offset_left = -73.0
+offset_top = 33.0
+offset_right = 117.046
+offset_bottom = 70.0
 grow_horizontal = 2
 mouse_filter = 1
 
 [node name="SmallQuota" type="Label" parent="CanvasLayer/Quota"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -100,6 +100,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BigQuota" type="Label" parent="CanvasLayer/Quota"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
