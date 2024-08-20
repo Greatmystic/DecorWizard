@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bym45nodgj0yd"]
+
+[ext_resource type="Texture2D" uid="uid://dkr7qhjg5mk50" path="res://Content/Sprites/Gnome Wizard IDLE.png" id="1_soptx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbdgd"]
+atlas = ExtResource("1_soptx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt15c"]
+atlas = ExtResource("1_soptx")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxehu"]
+atlas = ExtResource("1_soptx")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igyvm"]
+atlas = ExtResource("1_soptx")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4afa8"]
+atlas = ExtResource("1_soptx")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2sbn"]
+atlas = ExtResource("1_soptx")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak386"]
+atlas = ExtResource("1_soptx")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_toqo7"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cbdgd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qt15c")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_xxehu")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_igyvm")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4afa8")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_m2sbn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ak386")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Boarman" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_toqo7")
+autoplay = "default"
+frame_progress = 0.306326

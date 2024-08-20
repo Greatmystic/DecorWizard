@@ -65,6 +65,7 @@ polygon = PackedVector2Array(16, 49, 48, 49, 48, -16, 16, -16)
 
 [node name="Big" type="Node2D" parent="."]
 visible = false
+texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Big"]
 

@@ -78,6 +78,7 @@ visible = false
 [node name="Sprite2D" type="Sprite2D" parent="Big"]
 
 [node name="TileMap" type="TileMap" parent="Big"]
+texture_filter = 1
 position = Vector2(-16, -16)
 tile_set = SubResource("TileSet_av8p7")
 format = 2

@@ -48,11 +48,12 @@ texture_filter = 1
 position = Vector2(-16, -16)
 tile_set = SubResource("TileSet_av8p7")
 format = 2
-layer_0/tile_data = PackedInt32Array(1, 2, 0)
+layer_0/tile_data = PackedInt32Array(0, 2, 0)
 
 [node name="Area2D" type="Area2D" parent="Small"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Small/Area2D"]
+position = Vector2(-32, 0)
 polygon = PackedVector2Array(16, 16, 48, 16, 48, -16, 16, -16)
 
 [node name="CloudBurst" parent="Small" instance=ExtResource("5_uvojq")]

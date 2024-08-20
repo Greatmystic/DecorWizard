@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bt31o5csj4veb"]
+[gd_scene load_steps=11 format=3 uid="uid://clf5fet6cpmjs"]
 
 [ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/FX/Wizard.tscn" id="1_xcjv8"]
 [ext_resource type="FontFile" uid="uid://ceji4fqg5top3" path="res://Content/Other/MA.ttf" id="2_dpo20"]
 [ext_resource type="PackedScene" uid="uid://1njuxk1fpxbx" path="res://Content/Scenes/FX/cloud_burst_small.tscn" id="2_nvhe1"]
 [ext_resource type="Texture2D" uid="uid://80juymxms28a" path="res://Content/Sprites/DecorWizardBG.png" id="2_tpb83"]
-[ext_resource type="AudioStream" uid="uid://bjjcy0lxiw8uu" path="res://Content/Sounds/Fiction Float.ogg" id="5_bw8aa"]
+[ext_resource type="PackedScene" uid="uid://chcb4lkucuh1a" path="res://Content/Scenes/Blocks/gnome_wizard.tscn" id="5_cp7bi"]
+[ext_resource type="PackedScene" uid="uid://bym45nodgj0yd" path="res://Content/Scenes/Blocks/boarman.tscn" id="6_ig5bg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lyt0n"]
 font = ExtResource("2_dpo20")
@@ -130,6 +131,11 @@ grow_horizontal = 2
 text = "WIN ! !"
 label_settings = SubResource("LabelSettings_odgvg")
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_bw8aa")
-autoplay = true
+[node name="Boarman" parent="." instance=ExtResource("6_ig5bg")]
+position = Vector2(886, 587)
+frame_progress = 0.0210769
+
+[node name="GnomeWizard" parent="." instance=ExtResource("5_cp7bi")]
+position = Vector2(1022, 568)
+autoplay = "default"
+frame_progress = 0.385825

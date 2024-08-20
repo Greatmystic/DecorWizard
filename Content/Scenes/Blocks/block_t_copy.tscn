@@ -51,6 +51,7 @@ sources/2 = SubResource("TileSetAtlasSource_pj0sf")
 sources/3 = SubResource("TileSetAtlasSource_kh4g7")
 
 [node name="BlockT-COPY" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_31j34")
 
 [node name="Small" type="Node2D" parent="."]
