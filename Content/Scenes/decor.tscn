@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://clf5fet6cpmjs"]
+[gd_scene load_steps=9 format=3 uid="uid://bt31o5csj4veb"]
 
 [ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/FX/Wizard.tscn" id="1_xcjv8"]
 [ext_resource type="FontFile" uid="uid://ceji4fqg5top3" path="res://Content/Other/MA.ttf" id="2_dpo20"]

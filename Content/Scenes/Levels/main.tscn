@@ -8,17 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://cdsiy53w2e0vf" path="res://Content/Sprites/empty.png" id="6_qmnfx"]
 [ext_resource type="Texture2D" uid="uid://dnryt4ujtnxm3" path="res://Content/Sprites/error.png" id="7_1j0e8"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="7_l4wcd"]
-[ext_resource type="PackedScene" uid="uid://clf5fet6cpmjs" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
+[ext_resource type="PackedScene" uid="uid://bt31o5csj4veb" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
 [ext_resource type="PackedScene" uid="uid://qp13powhxnec" path="res://Content/Scenes/Blocks/block_t_copy.tscn" id="10_qwwjj"]
-[ext_resource type="PackedScene" uid="uid://bqjuqhb72dcul" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
+[ext_resource type="PackedScene" uid="uid://cp1rd0igsqw02" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
 [ext_resource type="PackedScene" uid="uid://y5kkslgjtl7" path="res://Content/Scenes/Blocks/l_block.tscn" id="11_gew7y"]
 [ext_resource type="PackedScene" uid="uid://dq7ddubrhoxwu" path="res://Content/Scenes/Blocks/desk_carpet.tscn" id="12_sencg"]
 [ext_resource type="PackedScene" uid="uid://dnqfxsnoemr5j" path="res://Content/Scenes/Blocks/penta_gurlu.tscn" id="13_kt0hh"]
-[ext_resource type="PackedScene" uid="uid://dbhytnchnnsyg" path="res://Content/Scenes/Blocks/cauldron.tscn" id="14_efmqu"]
-[ext_resource type="PackedScene" uid="uid://barmpmadc2q6n" path="res://Content/Scenes/Blocks/carpet.tscn" id="15_6hm46"]
-[ext_resource type="PackedScene" uid="uid://54gbnq18c3qb" path="res://Content/Scenes/Blocks/pot.tscn" id="16_md281"]
-[ext_resource type="PackedScene" uid="uid://chqi5s2opm458" path="res://Content/Scenes/Blocks/pot_desk.tscn" id="17_h4xgv"]
-[ext_resource type="PackedScene" uid="uid://kobeb72gi610" path="res://Content/Scenes/Blocks/couch.tscn" id="18_wk656"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/cauldron.tscn" id="14_efmqu"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/carpet.tscn" id="15_6hm46"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/pot.tscn" id="16_md281"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/pot_desk.tscn" id="17_h4xgv"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/couch.tscn" id="18_wk656"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sn1d1"]
 resource_name = "cell empty"
@@ -98,46 +98,46 @@ script = ExtResource("5_s4r3s")
 [node name="Blocks" type="Node2D" parent="."]
 
 [node name="T-Desk" parent="Blocks" instance=ExtResource("10_qwwjj")]
-position = Vector2(1016, 385)
+position = Vector2(1076, 212)
+
+[node name="T-Desk2" parent="Blocks" instance=ExtResource("10_qwwjj")]
+position = Vector2(166, 347)
 
 [node name="I Block" parent="Blocks" instance=ExtResource("10_tnufd")]
-position = Vector2(46, 310)
-
-[node name="L Block" parent="Blocks" instance=ExtResource("11_gew7y")]
-position = Vector2(73, 147)
-
-[node name="DeskCarpet" parent="Blocks" instance=ExtResource("12_sencg")]
-position = Vector2(1004, 122)
-
-[node name="PentaGurlu" parent="Blocks" instance=ExtResource("13_kt0hh")]
-position = Vector2(1075, 253)
-
-[node name="DeskCarpet2" parent="Blocks" instance=ExtResource("12_sencg")]
-position = Vector2(158, 181)
-
-[node name="BlockT-COPY" parent="Blocks" instance=ExtResource("10_qwwjj")]
-position = Vector2(1078, 484)
+position = Vector2(50, 346)
 
 [node name="I Block2" parent="Blocks" instance=ExtResource("10_tnufd")]
-position = Vector2(102, 320)
+position = Vector2(1099, 545)
+
+[node name="L Block" parent="Blocks" instance=ExtResource("11_gew7y")]
+position = Vector2(88, 142)
 
 [node name="L Block2" parent="Blocks" instance=ExtResource("11_gew7y")]
-position = Vector2(160, 333)
+position = Vector2(1004, 592)
+
+[node name="PentaGurlu" parent="Blocks" instance=ExtResource("13_kt0hh")]
+position = Vector2(1064, 85)
+
+[node name="DeskCarpet2" parent="Blocks" instance=ExtResource("12_sencg")]
+position = Vector2(171, 112)
 
 [node name="Cauldron" parent="Blocks" instance=ExtResource("14_efmqu")]
-position = Vector2(961, 529)
+position = Vector2(982, 243)
 
 [node name="Carpet" parent="Blocks" instance=ExtResource("15_6hm46")]
-position = Vector2(805, 582)
+position = Vector2(1058, 359)
 
 [node name="Pot" parent="Blocks" instance=ExtResource("16_md281")]
-position = Vector2(519, 588)
+position = Vector2(981, 462)
 
 [node name="PotDesk" parent="Blocks" instance=ExtResource("17_h4xgv")]
-position = Vector2(442, 577)
+position = Vector2(1110, 269)
 
 [node name="Couch" parent="Blocks" instance=ExtResource("18_wk656")]
-position = Vector2(340, 554)
+position = Vector2(166, 202)
+
+[node name="Couch2" parent="Blocks" instance=ExtResource("18_wk656")]
+position = Vector2(982, 331)
 
 [node name="Decor" parent="." instance=ExtResource("9_tsqbp")]
 metadata/_edit_lock_ = true
