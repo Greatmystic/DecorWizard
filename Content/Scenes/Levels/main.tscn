@@ -1,17 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://bwgob7s8x4al5"]
+[gd_scene load_steps=23 format=3 uid="uid://bwgob7s8x4al5"]
 
 [ext_resource type="Texture2D" uid="uid://4dvc1bnqki42" path="res://Content/Sprites/grid_cell.png" id="1_b4nu3"]
 [ext_resource type="Texture2D" uid="uid://bo7qrwx2hhdv4" path="res://Content/Sprites/1x4 tile.png" id="2_1yrim"]
 [ext_resource type="Texture2D" uid="uid://bobdfu5kkitbr" path="res://Content/Sprites/16x16 grid.png" id="3_l8v5q"]
 [ext_resource type="Texture2D" uid="uid://vo5dngrdgaeo" path="res://Content/Sprites/fullTileTest.png" id="4_e3y2c"]
 [ext_resource type="Script" path="res://Content/Scripts/Level.gd" id="5_s4r3s"]
-[ext_resource type="PackedScene" uid="uid://csf16xq5q425f" path="res://Content/Scenes/Blocks/Block T.tscn" id="6_kx40d"]
 [ext_resource type="Texture2D" uid="uid://cdsiy53w2e0vf" path="res://Content/Sprites/empty.png" id="6_qmnfx"]
 [ext_resource type="Texture2D" uid="uid://dnryt4ujtnxm3" path="res://Content/Sprites/error.png" id="7_1j0e8"]
 [ext_resource type="Texture2D" uid="uid://dwmwr076j31kt" path="res://Content/Sprites/shadow.png" id="7_l4wcd"]
-[ext_resource type="PackedScene" uid="uid://clf5fet6cpmjs" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
+[ext_resource type="PackedScene" uid="uid://bt31o5csj4veb" path="res://Content/Scenes/decor.tscn" id="9_tsqbp"]
 [ext_resource type="PackedScene" uid="uid://qp13powhxnec" path="res://Content/Scenes/Blocks/block_t_copy.tscn" id="10_qwwjj"]
-[ext_resource type="PackedScene" uid="uid://bqjuqhb72dcul" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
+[ext_resource type="PackedScene" uid="uid://cp1rd0igsqw02" path="res://Content/Scenes/Blocks/i_block.tscn" id="10_tnufd"]
 [ext_resource type="PackedScene" uid="uid://y5kkslgjtl7" path="res://Content/Scenes/Blocks/l_block.tscn" id="11_gew7y"]
 [ext_resource type="PackedScene" uid="uid://dq7ddubrhoxwu" path="res://Content/Scenes/Blocks/desk_carpet.tscn" id="12_sencg"]
 [ext_resource type="PackedScene" uid="uid://dnqfxsnoemr5j" path="res://Content/Scenes/Blocks/penta_gurlu.tscn" id="13_kt0hh"]
@@ -93,26 +92,35 @@ script = ExtResource("5_s4r3s")
 
 [node name="Blocks" type="Node2D" parent="."]
 
-[node name="BlockT" parent="Blocks" instance=ExtResource("6_kx40d")]
-position = Vector2(169, 174)
-
-[node name="BlockT2" parent="Blocks" instance=ExtResource("6_kx40d")]
-position = Vector2(192.785, 281.01)
-
 [node name="T-Desk" parent="Blocks" instance=ExtResource("10_qwwjj")]
-position = Vector2(247, 362)
+position = Vector2(1016, 385)
 
 [node name="I Block" parent="Blocks" instance=ExtResource("10_tnufd")]
-position = Vector2(310, 282)
+position = Vector2(46, 310)
 
 [node name="L Block" parent="Blocks" instance=ExtResource("11_gew7y")]
-position = Vector2(262, 187)
+position = Vector2(73, 147)
 
 [node name="DeskCarpet" parent="Blocks" instance=ExtResource("12_sencg")]
-position = Vector2(301, 551)
+position = Vector2(1004, 122)
 
 [node name="PentaGurlu" parent="Blocks" instance=ExtResource("13_kt0hh")]
-position = Vector2(440, 543)
+position = Vector2(1075, 253)
+
+[node name="DeskCarpet2" parent="Blocks" instance=ExtResource("12_sencg")]
+position = Vector2(158, 181)
+
+[node name="BlockT-COPY" parent="Blocks" instance=ExtResource("10_qwwjj")]
+position = Vector2(1078, 484)
+
+[node name="I Block2" parent="Blocks" instance=ExtResource("10_tnufd")]
+position = Vector2(102, 320)
+
+[node name="L Block2" parent="Blocks" instance=ExtResource("11_gew7y")]
+position = Vector2(160, 333)
+
+[node name="PentaGurlu2" parent="Blocks" instance=ExtResource("13_kt0hh")]
+position = Vector2(1013, 571)
 
 [node name="Decor" parent="." instance=ExtResource("9_tsqbp")]
 metadata/_edit_lock_ = true

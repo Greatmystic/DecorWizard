@@ -1,19 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://clf5fet6cpmjs"]
+[gd_scene load_steps=9 format=3 uid="uid://bt31o5csj4veb"]
 
 [ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/FX/Wizard.tscn" id="1_xcjv8"]
+[ext_resource type="FontFile" uid="uid://ceji4fqg5top3" path="res://Content/Other/MA.ttf" id="2_dpo20"]
 [ext_resource type="PackedScene" uid="uid://1njuxk1fpxbx" path="res://Content/Scenes/FX/cloud_burst_small.tscn" id="2_nvhe1"]
 [ext_resource type="Texture2D" uid="uid://80juymxms28a" path="res://Content/Sprites/DecorWizardBG.png" id="2_tpb83"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lyt0n"]
+font = ExtResource("2_dpo20")
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvegi"]
+font = ExtResource("2_dpo20")
 font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_bkj6f"]
+font = ExtResource("2_dpo20")
 font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_odgvg"]
+font = ExtResource("2_dpo20")
 font_size = 40
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.27451)
@@ -24,7 +29,7 @@ shadow_offset = Vector2(2.405, 2.295)
 [node name="Wizard" parent="." instance=ExtResource("1_xcjv8")]
 position = Vector2(134, 492)
 scale = Vector2(1.97656, 1.97656)
-frame_progress = 0.0
+frame_progress = 0.0887346
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
