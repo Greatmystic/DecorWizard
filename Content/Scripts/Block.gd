@@ -47,6 +47,7 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 				
 	if clicked and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		rotation_degrees += 90
+		level.updateSelectionPlacement()
 		
 
 
