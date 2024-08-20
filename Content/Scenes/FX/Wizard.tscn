@@ -305,5 +305,5 @@ animations = [{
 [node name="Wizard" type="AnimatedSprite2D"]
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_6840f")
-animation = &"WIN"
+animation = &"IDLE"
 autoplay = "IDLE"
