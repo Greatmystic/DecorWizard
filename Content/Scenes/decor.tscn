@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://clf5fet6cpmjs"]
+[gd_scene load_steps=14 format=3 uid="uid://bt31o5csj4veb"]
 
 [ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/FX/Wizard.tscn" id="1_xcjv8"]
 [ext_resource type="FontFile" uid="uid://ceji4fqg5top3" path="res://Content/Other/MA.ttf" id="2_dpo20"]
 [ext_resource type="PackedScene" uid="uid://1njuxk1fpxbx" path="res://Content/Scenes/FX/cloud_burst_small.tscn" id="2_nvhe1"]
 [ext_resource type="Texture2D" uid="uid://80juymxms28a" path="res://Content/Sprites/DecorWizardBG.png" id="2_tpb83"]
 [ext_resource type="AudioStream" uid="uid://bjjcy0lxiw8uu" path="res://Content/Sounds/Fiction Float.ogg" id="5_bw8aa"]
-[ext_resource type="PackedScene" uid="uid://chcb4lkucuh1a" path="res://Content/Scenes/Blocks/gnome_wizard.tscn" id="5_cp7bi"]
-[ext_resource type="PackedScene" uid="uid://bym45nodgj0yd" path="res://Content/Scenes/Blocks/boarman.tscn" id="6_ig5bg"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/gnome_wizard.tscn" id="5_cp7bi"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/boarman.tscn" id="6_ig5bg"]
+[ext_resource type="Texture2D" uid="uid://dptoo035ekg2p" path="res://Content/Sprites/WIN.png" id="8_q7rrm"]
+[ext_resource type="PackedScene" uid="uid://kkkeqstrmchj" path="res://Content/Scenes/FX/cloud_burst_big.tscn" id="9_qmx3i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lyt0n"]
 font = ExtResource("2_dpo20")
@@ -39,6 +41,7 @@ layer = -10
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(576, 324)
 texture = ExtResource("2_tpb83")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -146,3 +149,11 @@ frame_progress = 0.385825
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_bw8aa")
 autoplay = true
+
+[node name="Win" type="Sprite2D" parent="."]
+z_index = 10
+texture_filter = 1
+position = Vector2(592.21, 567.635)
+texture = ExtResource("8_q7rrm")
+
+[node name="CloudBurst" parent="Win" instance=ExtResource("9_qmx3i")]

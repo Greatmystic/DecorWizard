@@ -3,7 +3,7 @@ extends TileMap
 @onready var blocks = $"../Blocks"
 @onready var bigQuotaLabel = $"../Decor/CanvasLayer/Quota/BigQuota"
 @onready var smallQuotaLabel = $"../Decor/CanvasLayer/Quota/SmallQuota"
-@onready var winLabel = $"../Decor/CanvasLayer/Win"
+@onready var winLabel = $"../Decor/Win"
 @onready var wizardAnim = $"../Decor/Wizard"
 
 var selectedTile = Vector2i(0,0);
@@ -151,3 +151,5 @@ func updateQuotas():
 
 func winLevel():
 	winLabel.visible = true
+	$"../Label".visible = false
+	winLabel.get_node("CloudBurst").emitting = true
