@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://csjb381g3kwpq"]
+[gd_scene load_steps=45 format=3 uid="uid://csjb381g3kwpq"]
 
 [ext_resource type="Texture2D" uid="uid://cl8n22plxvth2" path="res://Content/Sprites/Wizard_IDLE_Blueprint.png" id="1_8uic1"]
 [ext_resource type="Texture2D" uid="uid://clkuasrbj1en4" path="res://Content/Sprites/WizardIdle.png" id="1_76u54"]
+[ext_resource type="Texture2D" uid="uid://bxch56xxdxa8y" path="res://Content/Sprites/Wizard Win Sprite.png" id="3_r3pmj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5oigq"]
 atlas = ExtResource("1_8uic1")
@@ -139,6 +140,30 @@ region = Rect2(640, 0, 128, 128)
 atlas = ExtResource("1_76u54")
 region = Rect2(0, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6y8d"]
+atlas = ExtResource("3_r3pmj")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nok42"]
+atlas = ExtResource("3_r3pmj")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy7po"]
+atlas = ExtResource("3_r3pmj")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b42as"]
+atlas = ExtResource("3_r3pmj")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0i3q"]
+atlas = ExtResource("3_r3pmj")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnd8f"]
+atlas = ExtResource("3_r3pmj")
+region = Rect2(640, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6840f"]
 animations = [{
 "frames": [{
@@ -252,10 +277,33 @@ animations = [{
 "loop": true,
 "name": &"MAGIC",
 "speed": 24.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_l6y8d")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_nok42")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_wy7po")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_b42as")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_y0i3q")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_wnd8f")
+}],
+"loop": true,
+"name": &"WIN",
+"speed": 24.0
 }]
 
 [node name="Wizard" type="AnimatedSprite2D"]
 texture_filter = 3
 sprite_frames = SubResource("SpriteFrames_6840f")
-animation = &"MAGIC"
+animation = &"WIN"
 autoplay = "IDLE"
