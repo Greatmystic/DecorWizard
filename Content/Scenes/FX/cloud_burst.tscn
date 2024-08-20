@@ -6,7 +6,7 @@
 _data = [Vector2(0.00696864, 1), 0.0, 0.0556709, 0, 0, Vector2(1, 0.0268283), -2.76763, 0.0, 0, 0]
 point_count = 2
 
-[node name="CloudBurst" type="CPUParticles2D"]
+[node name="CloudBurst2" type="CPUParticles2D"]
 emitting = false
 amount = 10
 lifetime = 0.7

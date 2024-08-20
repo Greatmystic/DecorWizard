@@ -22,6 +22,7 @@ func flipScale():
 	isBig = !isBig
 	big.visible = isBig
 	small.visible = !isBig
+	level.wizardAnim.play("MAGIC")
 	
 	if isBig:
 		level.bigQuota += 1
@@ -33,6 +34,9 @@ func flipScale():
 		level.smallQuota += 1
 		small.get_node("CloudBurst").restart()
 		small.get_node("CloudBurst").emitting = true
+	
+	await get_tree().create_timer(1).timeout
+	level.wizardAnim.play("IDLE")
 
 
 

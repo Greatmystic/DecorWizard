@@ -4,6 +4,7 @@ extends TileMap
 @onready var bigQuotaLabel = $"../Decor/CanvasLayer/Quota/BigQuota"
 @onready var smallQuotaLabel = $"../Decor/CanvasLayer/Quota/SmallQuota"
 @onready var winLabel = $"../Decor/CanvasLayer/Win"
+@onready var wizardAnim = $"../Decor/Wizard"
 
 var selectedTile = Vector2i(0,0);
 var selectedBlock = null
