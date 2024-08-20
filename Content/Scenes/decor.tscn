@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://clf5fet6cpmjs"]
+[gd_scene load_steps=14 format=3 uid="uid://clf5fet6cpmjs"]
 
 [ext_resource type="PackedScene" uid="uid://csjb381g3kwpq" path="res://Content/Scenes/FX/Wizard.tscn" id="1_xcjv8"]
 [ext_resource type="FontFile" uid="uid://ceji4fqg5top3" path="res://Content/Other/MA.ttf" id="2_dpo20"]
 [ext_resource type="PackedScene" uid="uid://1njuxk1fpxbx" path="res://Content/Scenes/FX/cloud_burst_small.tscn" id="2_nvhe1"]
 [ext_resource type="Texture2D" uid="uid://80juymxms28a" path="res://Content/Sprites/DecorWizardBG.png" id="2_tpb83"]
 [ext_resource type="AudioStream" uid="uid://bjjcy0lxiw8uu" path="res://Content/Sounds/Fiction Float.ogg" id="5_bw8aa"]
-[ext_resource type="PackedScene" uid="uid://chcb4lkucuh1a" path="res://Content/Scenes/Blocks/gnome_wizard.tscn" id="5_cp7bi"]
-[ext_resource type="PackedScene" uid="uid://bym45nodgj0yd" path="res://Content/Scenes/Blocks/boarman.tscn" id="6_ig5bg"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/gnome_wizard.tscn" id="5_cp7bi"]
+[ext_resource type="Texture2D" uid="uid://cf7emduvkc23o" path="res://Content/Sprites/WIN.png" id="5_ooqsn"]
+[ext_resource type="Texture2D" uid="uid://il1va2x51wsx" path="res://Content/Sprites/QUOTA.png" id="5_smwny"]
+[ext_resource type="PackedScene" path="res://Content/Scenes/Blocks/boarman.tscn" id="6_ig5bg"]
+[ext_resource type="PackedScene" uid="uid://b2fo35on3uhe3" path="res://Content/Scenes/FX/cloud_burst_big.tscn" id="6_sh0wm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lyt0n"]
 font = ExtResource("2_dpo20")
@@ -20,14 +23,16 @@ font_size = 25
 font = ExtResource("2_dpo20")
 font_size = 40
 
-[sub_resource type="LabelSettings" id="LabelSettings_odgvg"]
-font = ExtResource("2_dpo20")
-font_size = 40
-shadow_size = 10
-shadow_color = Color(0, 0, 0, 0.27451)
-shadow_offset = Vector2(2.405, 2.295)
-
 [node name="Decor" type="Node2D"]
+
+[node name="Boarman" parent="." instance=ExtResource("6_ig5bg")]
+position = Vector2(886, 587)
+frame_progress = 0.0210769
+
+[node name="GnomeWizard" parent="." instance=ExtResource("5_cp7bi")]
+position = Vector2(1022, 568)
+autoplay = "default"
+frame_progress = 0.385825
 
 [node name="Wizard" parent="." instance=ExtResource("1_xcjv8")]
 position = Vector2(134, 492)
@@ -36,18 +41,15 @@ scale = Vector2(1.97656, 1.97656)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="BG" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(576, 324)
 texture = ExtResource("2_tpb83")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-z_index = -1
-offset_right = 1158.0
-offset_bottom = 650.0
-mouse_filter = 1
-color = Color(0.149466, 0.172486, 0.195049, 1)
-metadata/_edit_lock_ = true
+[node name="Win" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(594.13, 560.21)
+texture = ExtResource("5_ooqsn")
+
+[node name="CloudBurst" parent="CanvasLayer/Win" instance=ExtResource("6_sh0wm")]
 
 [node name="Quota" type="Control" parent="CanvasLayer"]
 texture_filter = 1
@@ -61,6 +63,10 @@ offset_right = 117.046
 offset_bottom = 70.0
 grow_horizontal = 2
 mouse_filter = 1
+
+[node name="QuotaTitle" type="Sprite2D" parent="CanvasLayer/Quota"]
+position = Vector2(-110.44, 11.865)
+texture = ExtResource("5_smwny")
 
 [node name="SmallQuota" type="Label" parent="CanvasLayer/Quota"]
 texture_filter = 1
@@ -119,29 +125,6 @@ vertical_alignment = 1
 
 [node name="CloudBurst" parent="CanvasLayer/Quota/BigQuota" instance=ExtResource("2_nvhe1")]
 position = Vector2(36.314, 28.54)
-
-[node name="Win" type="Label" parent="CanvasLayer"]
-visible = false
-custom_minimum_size = Vector2(0.515, 0)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -61.0
-offset_top = 59.18
-offset_right = 62.0
-offset_bottom = 114.18
-grow_horizontal = 2
-text = "WIN ! !"
-label_settings = SubResource("LabelSettings_odgvg")
-
-[node name="Boarman" parent="." instance=ExtResource("6_ig5bg")]
-position = Vector2(886, 587)
-frame_progress = 0.0210769
-
-[node name="GnomeWizard" parent="." instance=ExtResource("5_cp7bi")]
-position = Vector2(1022, 568)
-autoplay = "default"
-frame_progress = 0.385825
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_bw8aa")

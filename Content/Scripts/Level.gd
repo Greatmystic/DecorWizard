@@ -19,6 +19,7 @@ var bigQuota = 0
 var smallQuota = 0
 var totalBlocks = 0
 var blocksPlaced = 0
+var won = false
 
 
 func _ready():
@@ -150,4 +151,12 @@ func updateQuotas():
 
 
 func winLevel():
+	won = true
+	$"../Label".visible = false
+	$"../Decor/CanvasLayer/Quota".visible = false
 	winLabel.visible = true
+	winLabel.get_node("CloudBurst").emitting = true
+	wizardAnim.play("WIN")
+	for b in blocks.get_children():
+		b.small.get_node("Area2D").visible = false
+		b.big.get_node("Area2D").visible = false

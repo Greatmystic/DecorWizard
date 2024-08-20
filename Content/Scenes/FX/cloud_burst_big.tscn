@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2fo35on3uhe3"]
+
+[ext_resource type="Texture2D" uid="uid://dy62nnc7gnb1c" path="res://Content/Sprites/cloud_particle.png" id="1_8qimx"]
+
+[sub_resource type="Curve" id="Curve_obdpu"]
+_data = [Vector2(0.00696864, 1), 0.0, 0.0556709, 0, 0, Vector2(1, 0.0268283), -2.76763, 0.0, 0, 0]
+point_count = 2
+
+[node name="CloudBurst" type="CPUParticles2D"]
+emitting = false
+amount = 40
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.3
+texture = ExtResource("1_8qimx")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 600.0
+angular_velocity_min = -153.0
+angular_velocity_max = 153.96
+damping_min = 1000.0
+damping_max = 1000.0
+scale_amount_min = 1.8
+scale_amount_max = 2.2
+scale_amount_curve = SubResource("Curve_obdpu")

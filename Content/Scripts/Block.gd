@@ -36,7 +36,8 @@ func flipScale():
 		small.get_node("CloudBurst").emitting = true
 	
 	await get_tree().create_timer(1).timeout
-	level.wizardAnim.play("IDLE")
+	if !level.won:
+		level.wizardAnim.play("IDLE")
 
 
 
